@@ -83,7 +83,7 @@ p {
 .case {
     display: flex;
     align-items: baseline;
-    gap: 6px;
+    gap: 4px;
 }
 
 .case + .case {
@@ -116,7 +116,7 @@ p {
 .links li {
     display: flex;
     align-items: baseline;
-    gap: 6px;
+    gap: 4px;
 }
 
 .links li + li {

@@ -97,7 +97,7 @@ p {
     color: #6B6E76;
     text-decoration: underline;
     text-underline-offset: 2px;
-    transition: color .5s ease;
+    transition: color .25s ease;
 }
 
 .case a:hover {
@@ -137,7 +137,7 @@ p {
     color: #6B6E76;
     text-decoration: underline;
     text-underline-offset: 2px;
-    transition: color .5s ease;
+    transition: color .25s ease;
 }
 
 .link:hover {

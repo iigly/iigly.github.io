@@ -144,6 +144,50 @@ p {
     color: #292A2E;
 }
 
+/* case page */
+
+.cover {
+
+    margin: 24px 0;
+
+}
+
+.cover img {
+
+    display: block;
+    width: 100%;
+    height: auto;
+    border-radius: 8px;
+
+}
+
+.case-page p,
+.case-page li {
+
+    color: #3B3D42;
+
+}
+
+.results {
+
+    padding-left: 20px;
+
+}
+
+.results li {
+
+    font-size: 15px;
+    line-height: 22px;
+    font-weight: 400;
+
+}
+
+.results li + li {
+
+    margin-top: 4px;
+
+}
+
 /* footer */
 
 footer p {

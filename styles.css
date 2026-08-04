@@ -185,6 +185,12 @@ p {
     margin-top: 4px;
 }
 
+.callout{
+    padding: 16px;
+    border-radius: 8px;
+    background-color: #FFFFFF;
+}
+
 /* footer */
 
 footer p {

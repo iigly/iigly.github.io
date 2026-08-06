@@ -155,11 +155,17 @@ p {
 
 /* case page */
 
-.cover {
+.case-image {
     margin: 24px 0;
 }
 
-.cover img {
+@media (min-width: 656px) {
+    .case-image {
+        margin: 24px -48px;
+    }
+}
+
+.case-image img {
     display: block;
     width: 100%;
     height: auto;

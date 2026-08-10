@@ -159,9 +159,9 @@ p {
     margin: 24px 0;
 }
 
-@media (min-width: 656px) {
+@media (min-width: 688px) {
     .case-image {
-        margin: 24px -48px;
+        margin: 24px -64px;
     }
 }
 

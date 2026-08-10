@@ -120,6 +120,10 @@ p {
     color: #6B6E76;
 }
 
+.case-divider {
+    border-bottom: 1px solid #DDDEE1;
+}
+
 /* links */
 
 .links li {

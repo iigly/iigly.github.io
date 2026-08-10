@@ -59,7 +59,7 @@ header a.logo {
 
 /* spacing */
 
-section {
+section + section {
     margin-top: 24px;
 }
 
@@ -122,7 +122,7 @@ p {
 
 .case-divider {
     border-bottom: 1px solid #DDDEE1;
-    margin-top: 24px;
+    margin: 24px 0;
 }
 
 /* links */

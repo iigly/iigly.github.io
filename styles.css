@@ -59,8 +59,8 @@ header a.logo {
 
 /* spacing */
 
-section + section {
-    margin-top: 24px;
+section {
+    margin: 24px 0;
 }
 
 /* typography */

@@ -223,7 +223,9 @@ footer p {
     inset: 0;
     z-index: 1000;
     padding: 24px;
-    background: rgba(0, 0, 0, 0.75);
+    background: rgba(0, 0, 0, 0.5);
+    backdrop-filter: blur(4px);
+    -webkit-backdrop-filter: blur(4px);
     overflow: auto;
 }
 

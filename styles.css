@@ -210,3 +210,54 @@ footer p {
     font-weight: 400;
     color: #6B6E76;
 }
+
+/* image zoom */
+
+.zooma {
+    cursor: zoom-in;
+}
+
+.image-popup {
+    display: none;
+    position: fixed;
+    inset: 0;
+    z-index: 1000;
+    padding: 24px;
+    background: rgba(0, 0, 0, 0.75);
+    overflow: auto;
+}
+
+.image-popup.active {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.image-popup img {
+    display: block;
+    width: auto;
+    height: auto;
+    max-width: calc(100vw - 48px);
+    max-height: calc(100vh - 48px);
+    border-radius: 16px;
+}
+
+.image-popup-close {
+    position: fixed;
+    top: 16px;
+    right: 16px;
+    width: 40px;
+    height: 40px;
+    padding: 0;
+    border: 0;
+    background: none;
+    color: #FFFFFF;
+    cursor: pointer;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.image-popup-close svg {
+    display: block;
+}

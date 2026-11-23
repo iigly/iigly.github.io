@@ -205,13 +205,16 @@ function initReveal() {
     });
     if (!blocks.length || !document.documentElement.classList.contains('reveal-ready')) return;
 
-    // what is already on the screen when the page opens is shown at once
-    const line = window.innerHeight * 0.75;
+    // everything that fits on the first screen is shown at once, down to its bottom edge
+    // (the quarter line is only for parts that arrive while the page is scrolled)
+    const screenBottom = window.innerHeight;
     blocks.forEach(block => {
+        if (block.getBoundingClientRect().top < screenBottom) {
+            block.classList.add('is-started', 'is-instant');
+        }
         Array.from(block.children).forEach(child => {
-            if (child.getBoundingClientRect().top < line) {
+            if (child.getBoundingClientRect().top < screenBottom) {
                 child.classList.add('is-visible', 'is-instant');
-                block.classList.add('is-started', 'is-instant');
             } else {
                 revealPending.push(child);
             }

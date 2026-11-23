@@ -1,0 +1,649 @@
+/* theme tokens */
+
+:root {
+    color-scheme: light;
+    --bg: #F0F1F2;
+    --text: #292A2E;
+    --muted: #6B6E76;
+    --border: #DDDEE1;
+    --text-case: #3B3D42;
+    --surface: #FFFFFF;
+    --accent: #FE0026;
+    --overlay: rgba(0, 0, 0, 0.5);
+    --on-overlay: #FFFFFF;
+    --dash: #C6C9CE;
+    --toggle-track: #E3E4E7;
+    --toggle-track-shadow: rgba(41, 42, 46, 0.18);
+    --toggle-track-edge: rgba(255, 255, 255, 0.9);
+    --toggle-cap: #FFFFFF;
+    --toggle-cap-icon: #292A2E;
+    --toggle-cap-highlight: rgba(255, 255, 255, 0.9);
+    --toggle-cap-shadow: rgba(41, 42, 46, 0.28);
+    --toggle-icon-off: #7A7D85;
+    --frame-bg: #FFFFFF;
+    --frame-shadow: 0 0 0 1px rgba(41, 42, 46, 0.05), 0 1px 2px rgba(41, 42, 46, 0.04), 0 4px 8px rgba(41, 42, 46, 0.04), 0 12px 24px rgba(41, 42, 46, 0.05);
+}
+
+@media (prefers-color-scheme: dark) {
+    :root:not([data-theme="light"]) {
+        color-scheme: dark;
+        --bg: #151618;
+        --text: #ECEDEF;
+        --muted: #9C9FA7;
+        --border: #2B2D31;
+        --text-case: #C8CACF;
+        --surface: #1E1F23;
+        --accent: #FE0026;
+        --overlay: rgba(0, 0, 0, 0.7);
+        --on-overlay: #FFFFFF;
+        --dash: #3A3C42;
+        --toggle-track: #0D0E10;
+        --toggle-track-shadow: rgba(0, 0, 0, 0.7);
+        --toggle-track-edge: rgba(255, 255, 255, 0.07);
+        --toggle-cap: #3A3C42;
+        --toggle-cap-icon: #ECEDEF;
+        --toggle-cap-highlight: rgba(255, 255, 255, 0.12);
+        --toggle-cap-shadow: rgba(0, 0, 0, 0.6);
+        --toggle-icon-off: #7C7F87;
+        --frame-bg: #1E1F23;
+        --frame-shadow: 0 0 0 1px rgba(255, 255, 255, 0.07), 0 1px 2px rgba(0, 0, 0, 0.35), 0 6px 12px rgba(0, 0, 0, 0.3), 0 16px 32px rgba(0, 0, 0, 0.3);
+    }
+}
+
+:root[data-theme="dark"] {
+    color-scheme: dark;
+    --bg: #151618;
+    --text: #ECEDEF;
+    --muted: #9C9FA7;
+    --border: #2B2D31;
+    --text-case: #C8CACF;
+    --surface: #1E1F23;
+    --accent: #FE0026;
+    --overlay: rgba(0, 0, 0, 0.7);
+    --on-overlay: #FFFFFF;
+    --dash: #3A3C42;
+    --toggle-track: #0D0E10;
+    --toggle-track-shadow: rgba(0, 0, 0, 0.7);
+    --toggle-track-edge: rgba(255, 255, 255, 0.07);
+    --toggle-cap: #3A3C42;
+    --toggle-cap-icon: #ECEDEF;
+    --toggle-cap-highlight: rgba(255, 255, 255, 0.12);
+    --toggle-cap-shadow: rgba(0, 0, 0, 0.6);
+    --toggle-icon-off: #7C7F87;
+    --frame-bg: #1E1F23;
+    --frame-shadow: 0 0 0 1px rgba(255, 255, 255, 0.07), 0 1px 2px rgba(0, 0, 0, 0.35), 0 6px 12px rgba(0, 0, 0, 0.3), 0 16px 32px rgba(0, 0, 0, 0.3);
+}
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+html,
+body {
+    min-height: 100%;
+}
+
+body {
+    display: flex;
+    flex-direction: column;
+    min-height: 100vh;
+    background: var(--bg);
+    color: var(--text);
+    font-family: "Inter", sans-serif;
+}
+
+/* layout */
+
+header,
+main,
+footer {
+    width: 100%;
+    max-width: 560px;
+    margin: 0 auto;
+}
+
+header {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    padding: 24px;
+}
+
+footer {
+    padding: 0px 24px 24px;
+}
+
+.footer-bar {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    padding-top: 24px;
+    border-top: 1px solid var(--border);
+}
+
+.footer-bar-plain {
+    border-top: 0;
+}
+
+main {
+    flex: 1;
+    padding: 0 24px 24px;
+}
+
+
+/* spacing */
+
+section + section {
+    margin-top: 24px;
+}
+
+/* typography */
+
+h1,
+h2 {
+    margin-bottom: 4px;
+    font-size: 15px;
+    line-height: 22px;
+    font-weight: 600;
+}
+
+p {
+    font-size: 15px;
+    line-height: 22px;
+    font-weight: 400;
+    color: var(--muted);
+}
+
+/* lists reset */
+
+.cases,
+.links {
+    list-style: none;
+}
+
+/* cases */
+
+.case {
+    display: flex;
+    align-items: baseline;
+    gap: 4px;
+}
+
+.case + .case {
+    margin-top: 4px;
+}
+
+.case a {
+    font-size: 15px;
+    line-height: 22px;
+    font-weight: 400;
+    color: var(--muted);
+    text-decoration: underline;
+    text-underline-offset: 2px;
+    transition: color .25s ease;
+}
+
+.case a:hover {
+    color: var(--text);
+}
+
+.case span {
+    font-size: 15px;
+    line-height: 22px;
+    font-weight: 400;
+    color: var(--muted);
+}
+
+/* links */
+
+.links li {
+    display: flex;
+    align-items: baseline;
+    gap: 4px;
+}
+
+.links li + li {
+    margin-top: 4px;
+}
+
+.links span {
+    font-size: 15px;
+    line-height: 22px;
+    font-weight: 400;
+    color: var(--muted);
+}
+
+.link {
+    font-size: 15px;
+    line-height: 22px;
+    font-weight: 400;
+    color: var(--muted);
+    text-decoration: underline;
+    text-underline-offset: 2px;
+    transition: color .25s ease;
+}
+
+.link:hover {
+    color: var(--text);
+}
+
+/* case page */
+
+.case-page p,
+.case-page li {
+    color: var(--text-case);
+}
+
+.results {
+    padding-left: 20px;
+}
+
+.results li {
+    font-size: 15px;
+    line-height: 22px;
+    font-weight: 400;
+}
+
+.results li + li {
+    margin-top: 4px;
+}
+
+.callout{
+    padding: 16px;
+    border-radius: 8px;
+    background-color: var(--surface);
+}
+
+/* footer */
+
+footer p {
+    font-size: 15px;
+    line-height: 22px;
+    font-weight: 400;
+    color: var(--muted);
+}
+
+/* image zoom */
+
+.zoom {
+    cursor: zoom-in;
+}
+
+.image-popup {
+    display: none;
+    visibility: hidden;
+    position: fixed;
+    inset: 0;
+    z-index: 1000;
+    padding: 24px;
+    overflow: auto;
+}
+
+/* dimmed, blurred backdrop: a separate layer so that it can fade without the image */
+.image-popup::before {
+    content: "";
+    position: fixed;
+    inset: 0;
+    z-index: -1;
+    background: var(--overlay);
+    backdrop-filter: blur(4px);
+    -webkit-backdrop-filter: blur(4px);
+    opacity: 0;
+    transition: opacity .4s cubic-bezier(.4, 0, .2, 1);
+}
+
+.image-popup.shown::before {
+    opacity: 1;
+}
+
+.image-popup.active {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.image-popup.visible {
+    visibility: visible;
+}
+
+.image-popup img {
+    display: block;
+    width: auto;
+    height: auto;
+    max-width: calc(100vw - 48px);
+    max-height: calc(100vh - 48px);
+    border-radius: 16px;
+}
+
+.image-popup-close {
+    position: fixed;
+    top: 16px;
+    right: 16px;
+    width: 40px;
+    height: 40px;
+    padding: 0;
+    border: 0;
+    background: none;
+    color: var(--on-overlay);
+    cursor: pointer;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    opacity: 0;
+    transition: opacity .25s ease;
+}
+
+.image-popup.shown .image-popup-close {
+    opacity: 1;
+    transition-delay: .2s;
+}
+
+@media (prefers-reduced-motion: reduce) {
+    .image-popup::before,
+    .image-popup-close {
+        transition: none;
+    }
+}
+
+.image-popup-close svg {
+    display: block;
+}
+
+/* avatar: a plain red circle, it only stays in place while pages change */
+
+.avatar {
+    display: block;
+    width: 24px;
+    height: 24px;
+    border-radius: 8px;
+    background: var(--accent);
+    view-transition-name: brand-logo;
+}
+
+/* theme toggle: a recessed slot with a neutral key */
+
+.theme-toggle {
+    --thumb-x: 0px;
+    --sun-color: var(--toggle-cap-icon);
+    --moon-color: var(--toggle-icon-off);
+    position: relative;
+    display: block;
+    flex: none;
+    width: 48px;
+    height: 24px;
+    padding: 0;
+    border: 0;
+    border-radius: 8px;
+    background: var(--toggle-track);
+    box-shadow: inset 0 1px 2px var(--toggle-track-shadow), 0 1px 0 var(--toggle-track-edge);
+    cursor: pointer;
+    transition: background-color .4s cubic-bezier(.4, 0, .2, 1), box-shadow .4s cubic-bezier(.4, 0, .2, 1);
+    view-transition-name: theme-toggle;
+}
+
+.theme-toggle::after {
+    content: "";
+    position: absolute;
+    inset: -8px;
+}
+
+.theme-toggle-thumb {
+    position: absolute;
+    top: 2px;
+    left: 2px;
+    width: 20px;
+    height: 20px;
+    border-radius: 6px;
+    background: var(--toggle-cap);
+    box-shadow: inset 0 1px 0 var(--toggle-cap-highlight), 0 1px 2px var(--toggle-cap-shadow);
+    transform: translateX(var(--thumb-x));
+    transition: transform .5s cubic-bezier(.32, .72, 0, 1), background-color .4s cubic-bezier(.4, 0, .2, 1), box-shadow .4s cubic-bezier(.4, 0, .2, 1);
+}
+
+.theme-toggle-icon {
+    position: absolute;
+    top: 4px;
+    width: 16px;
+    height: 16px;
+    transition: color .4s cubic-bezier(.4, 0, .2, 1);
+}
+
+.theme-toggle-icon svg {
+    display: block;
+    width: 16px;
+    height: 16px;
+}
+
+.theme-toggle .icon-sun {
+    left: 4px;
+    color: var(--sun-color);
+}
+
+.theme-toggle .icon-moon {
+    left: 28px;
+    color: var(--moon-color);
+}
+
+@media (prefers-color-scheme: dark) {
+    :root:not([data-theme="light"]) .theme-toggle {
+        --thumb-x: 24px;
+        --sun-color: var(--toggle-icon-off);
+        --moon-color: var(--toggle-cap-icon);
+    }
+}
+
+:root[data-theme="dark"] .theme-toggle {
+    --thumb-x: 24px;
+    --sun-color: var(--toggle-icon-off);
+    --moon-color: var(--toggle-cap-icon);
+}
+
+@media (prefers-reduced-motion: reduce) {
+    .theme-toggle,
+    .theme-toggle-thumb,
+    .theme-toggle-icon {
+        transition: none;
+    }
+}
+
+/* soft theme change: the class is set briefly by the toggle, the toggle has its own transitions */
+
+.theme-anim,
+.theme-anim *:not(.theme-toggle, .theme-toggle *),
+.theme-anim *:not(.theme-toggle, .theme-toggle *)::before,
+.theme-anim *:not(.theme-toggle, .theme-toggle *)::after {
+    transition: background-color .4s cubic-bezier(.4, 0, .2, 1), color .4s cubic-bezier(.4, 0, .2, 1), border-color .4s cubic-bezier(.4, 0, .2, 1), text-decoration-color .4s cubic-bezier(.4, 0, .2, 1), box-shadow .4s cubic-bezier(.4, 0, .2, 1) !important;
+}
+
+/* keyboard focus */
+
+:focus-visible {
+    outline: 2px solid var(--text);
+    outline-offset: 2px;
+}
+
+.case a:focus-visible,
+.link:focus-visible {
+    border-radius: 2px;
+}
+
+.zoom:focus-visible {
+    border-radius: 16px;
+}
+
+.image-popup-close:focus-visible {
+    border-radius: 8px;
+    outline-color: var(--on-overlay);
+}
+
+/* the years next to a case title */
+
+.year {
+    color: var(--muted);
+    white-space: nowrap;
+}
+
+/* case page: framed pictures, self-contained blocks, reveal on scroll */
+
+.frame {
+    --bleed: 8px;
+    margin: 24px calc(var(--bleed) * -1);
+    padding: 8px;
+    border-radius: 20px;
+    background: var(--frame-bg);
+    box-shadow: var(--frame-shadow);
+}
+
+@media (min-width: 688px) {
+    .frame {
+        --bleed: 32px;
+    }
+}
+
+.frame img {
+    display: block;
+    width: 100%;
+    height: auto;
+    border-radius: 12px;
+}
+
+/* the last block gets the same air before the footer line as there is between blocks */
+.has-blocks {
+    padding-bottom: 48px;
+}
+
+.block {
+    position: relative;
+    margin-top: 48px;
+    padding-top: 48px;
+}
+
+/* the dashed divider between blocks */
+.block::before {
+    content: "";
+    position: absolute;
+    top: 0;
+    right: 0;
+    left: 0;
+    height: 1px;
+    background: repeating-linear-gradient(to right, var(--dash) 0 8px, transparent 8px 12px);
+}
+
+.block-media {
+    margin-top: 24px;
+    margin-bottom: 0;
+}
+
+.block h3 {
+    margin-top: 24px;
+    margin-bottom: 4px;
+    font-size: 15px;
+    line-height: 22px;
+    font-weight: 600;
+}
+
+/* reveal on scroll: the divider draws itself, then the parts of the block rise one after another.
+   every part waits until it is well inside the screen (see initReveal) */
+.reveal-ready .block::before {
+    clip-path: inset(0 100% 0 0);
+    transition: clip-path 1s cubic-bezier(.2, .7, .2, 1);
+}
+
+.reveal-ready .block.is-started::before {
+    clip-path: inset(0);
+}
+
+.reveal-ready .block > * {
+    opacity: 0;
+    transform: translateY(28px);
+    transition: opacity .9s cubic-bezier(.2, .7, .2, 1), transform .9s cubic-bezier(.2, .7, .2, 1);
+    transition-delay: var(--d, 0ms);
+}
+
+.reveal-ready .block > .is-visible {
+    opacity: 1;
+    transform: none;
+}
+
+.reveal-ready .block.is-instant::before,
+.reveal-ready .block > .is-instant {
+    transition: none;
+}
+
+/* page transitions
+   1. the old page fades out quickly
+   2. the new page appears empty and its blocks fade in one after another, rising a little */
+
+@media (prefers-reduced-motion: no-preference) {
+    @view-transition {
+        navigation: auto;
+    }
+}
+
+/* whatever shows behind the snapshots is always the page background */
+::view-transition {
+    background: var(--bg);
+}
+
+::view-transition-old(root),
+::view-transition-new(root) {
+    mix-blend-mode: normal;
+}
+
+::view-transition-old(root) {
+    animation: vt-out .18s cubic-bezier(.4, 0, 1, 1) both;
+}
+
+/* hidden until the old page is gone, so the two never overlap */
+::view-transition-new(root) {
+    animation: vt-appear .01s linear .18s both;
+}
+
+@media (prefers-reduced-motion: no-preference) {
+    .vt-reveal main > *,
+    .vt-reveal footer {
+        animation: vt-in .5s cubic-bezier(.2, .7, .2, 1) .16s both;
+    }
+
+    .vt-reveal main > :nth-child(2) {
+        animation-delay: .21s;
+    }
+
+    .vt-reveal main > :nth-child(3) {
+        animation-delay: .26s;
+    }
+
+    .vt-reveal main > :nth-child(4) {
+        animation-delay: .31s;
+    }
+
+    .vt-reveal main > :nth-child(5) {
+        animation-delay: .36s;
+    }
+
+    .vt-reveal main > :nth-child(n+6),
+    .vt-reveal footer {
+        animation-delay: .41s;
+    }
+}
+
+@keyframes vt-out {
+    to {
+        opacity: 0;
+    }
+}
+
+@keyframes vt-appear {
+    from {
+        opacity: 0;
+    }
+}
+
+@keyframes vt-in {
+    from {
+        opacity: 0;
+        transform: translateY(8px);
+    }
+}
